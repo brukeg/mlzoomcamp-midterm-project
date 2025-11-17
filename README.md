@@ -4,6 +4,9 @@ This project attempts to answer, how can you predict salary given some set of li
 ## Predicting Salary
 Using two models: **Linear Rergressor** and **Decision Tree Regressor** we will then package-up the best performing model as a simple Flask API that can be run inside a Docker container.
 
+### Data Analysis
+See: `salary-prediction.ipynb`
+
 ## Dataset
 I got the data set from Kaggle, and what's notable about this data is that it is synthetic--for education only--it is absolutely not real data at all. Each row represents one (fake as all heck) employee.
 
@@ -41,7 +44,7 @@ You can read more about the data on Kaggle: https://www.kaggle.com/datasets/rkia
 
 5. **Deployment**  
    - Save `(DictVectorizer, model)` as `model_decision_tree.bin`  
-   - Serve predictions from a small **Flask API** (`predict.py`)  
+   - Serve predictions from a small **Flask API** (file: `predict.py`)  
 
 **Current results**
 
@@ -140,7 +143,7 @@ Input JSON:
   "age": 31.0,
   "gender": "male",
   "education_level": "bachelor",
-  "job_title": "data_engineer",
+  "job_title": "ceo",
   "years_of_experience": 5.0
 }
 ```
@@ -152,7 +155,7 @@ Response JSON:
 }
 ```
 
-Keep in mind there are quote around string values but not numerics.
+Keep in mind there are quotes around string values but not numerics.
 ```bash
 curl -s -X POST http://127.0.0.1:9696/predict \
 -H "Content-Type: application/json" \
